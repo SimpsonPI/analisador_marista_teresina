@@ -147,3 +147,4 @@ async def pagina_principal():
 </body>
 </html>"""
     return HTMLResponse(html)
+handler = app
