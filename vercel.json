@@ -7,10 +7,5 @@
       "config": { "pythonVersion": "3.11" }
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.py"
-    }
-  ]
+  "routes": [{"src": "/(.*)", "dest": "app.py"}]
 }
