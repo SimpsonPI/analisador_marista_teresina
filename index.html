@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist — Bolsa Marista Champagnat Teresina</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif;}
+        :root{--primaria:#1e40af;--secundaria:#3b82f6;--destaque:#fef3c7;--sucesso:#f0fdf4;--borda:#e2e8f0;--texto:#1f2937;--claro:#6b7280;}
+        body{background:#f8fafc;padding:15px;max-width:900px;margin:0 auto;}
+        h1{text-align:center;color:var(--primaria);margin-bottom:5px;font-size:1.5rem;}
+        .sub{text-align:center;color:var(--claro);margin-bottom:15px;font-size:.9rem;}
+        .aviso{background:var(--destaque);border-left:4px solid #f59e0b;padding:12px;margin-bottom:20px;border-radius:6px;}
+        .abas{display:flex;flex-wrap:wrap;border-bottom:2px solid var(--borda);margin-bottom:20px;}
+        .aba{padding:10px 14px;cursor:pointer;border-top-left-radius:8px;border-top-right-radius:8px;border:1px solid transparent;margin-bottom:-1px;font-weight:500;font-size:.88rem;}
+        .aba.ativa{border:1px solid var(--borda);border-bottom:2px solid white;background:white;color:var(--primaria);font-weight:bold;}
+        .aba:hover{background:#eff6ff;}
+        .conteudo{display:none;animation:aparece .3s ease;}
+        .conteudo.ativa{display:block;}
+        @keyframes aparece{from{opacity:0;}to{opacity:1;}}
+        .item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-bottom:1px solid #f1f5f9;transition:background .2s;}
+        .item:hover{background:#f8fafc;}
+        .item.feito{background:var(--sucesso);}
+        input{width:20px;height:20px;margin-top:2px;cursor:pointer;accent-color:var(--primaria);}
+        .txt{flex:1;line-height:1.5;font-size:.92rem;}
+        .link{color:var(--secundaria);text-decoration:none;font-size:.85rem;white-space:nowrap;margin-left:8px;}
+        .link:hover{text-decoration:underline;}
+        .categoria{font-weight:bold;color:#7c3aed;margin:18px 0 6px;padding-bottom:4px;border-bottom:1px dashed #ddd;}
+        .linha{padding:8px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;}
+        .etapa{font-weight:500;}
+        .prazo{font-weight:bold;color:#d97706;}
+        .card-links{background:#eff6ff;padding:15px;border-radius:8px;margin:15px 0;}
+        .card-links a{display:block;padding:6px 0;color:var(--primaria);text-decoration:none;}
+        .card-links a:hover{text-decoration:underline;}
+        .obs{background:white;padding:15px;border-radius:8px;margin-top:20px;box-shadow:0 1px 3px rgba(0,0,0,.05);font-size:.85rem;line-height:1.7;color:var(--claro);}
+        .resumo{display:flex;gap:15px;margin-top:10px;flex-wrap:wrap;}
+        .resumo span{padding:4px 12px;border-radius:20px;font-size:.85rem;font-weight:500;}
+        .sim{background:#dcfce7;color:#166534;}
+    </style>
+</head>
+<body>
+
+    <h1>📋 CHECKLIST — BOLSA DE ESTUDO</h1>
+    <p class="sub">Marista Champagnat Teresina • Renovação 2026/2027</p>
+
+    <div class="aviso">
+        ⚠️ <strong>URGENTE:</strong> Entrevista da 2ª Série já está em andamento! Confira prazos na aba Cronograma.
+    </div>
+
+    <div class="abas">
+        <div class="aba ativa" onclick="abrir(0)">🪪 Identificação</div>
+        <div class="aba" onclick="abrir(1)">🏠 Residência</div>
+        <div class="aba" onclick="abrir(2)">💰 Renda</div>
+        <div class="aba" onclick="abrir(3)">📅 Cronograma</div>
+        <div class="aba" onclick="abrir(4)">🔗 Links Úteis</div>
+    </div>
+
+    <!-- ABA 0: IDENTIFICAÇÃO -->
+    <div class="conteudo ativa" id="c0">
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">RG e CPF de TODOS os membros do grupo familiar (Obrigatório: RG/CPF do aluno + Certidão de Nascimento)</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Certidão de Nascimento do aluno/candidato (OBRIGATÓRIA)</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Menores de 18 sem RG: Certidão de Nascimento substitui RG</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Laudo/relatório de acompanhamento ATUALIZADO (se necessidades especiais)</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Certidão de Casamento OU Declaração de União Estável (se for o caso) → RETIRAR NA ESCOLA</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Averbação de Divórcio OU Declaração de Separação Conjugal → RETIRAR NA ESCOLA</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Certidão de Óbito (se pais/responsáveis falecidos)</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Termo de Guarda ou Tutela / Decisão Judicial (guarda compartilhada)</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">CTPS Digital — impressa nos últimos 30 dias (≥18 anos; 14-17 se aprendiz) <a href="https://servicos.mte.gov.br" target="_blank" class="link">→ Emitir</a></span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">CTPS deve conter os 3 últimos contratos de trabalho</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Páginas da CTPS: série/foto, qualificação civil, contratos (penúltima, última e subsequente em branco)</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Páginas de alteração de salário (se registro vigente assinado)</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">2 primeiras páginas do contrato em branco (se CTPS nunca assinada)</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Carteira de Trabalho física (se não tiver CTPS Digital)</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Declaração de Ausência de CTPS → RETIRAR NA SECRETARIA DA ESCOLA</span></div>
+    </div>
+
+    <!-- ABA 1: RESIDÊNCIA -->
+    <div class="conteudo" id="c1">
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Comprovante de residência: água, energia ou telefone em nome dos responsáveis (ÚLTIMO MÊS)</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">❌ NÃO ACEITAMOS carnês ou faturas de cartão</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Documento do imóvel: escritura / termo de posse / cessão de direitos / IPTU</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Se ALUGADO: contrato de aluguel + recibo</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Se FINANCIADO: contrato de financiamento</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Se CEDIDO: declaração do proprietário</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Sem documento: Declaração na Associação de Moradores do bairro</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Declaração de Situação de Moradia → RETIRAR NA ESCOLA</span></div>
+    </div>
+
+    <!-- ABA 2: RENDA -->
+    <div class="conteudo" id="c2">
+        <div class="categoria">💼 Assalariados (renda fixa)</div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">03 últimos contracheques</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Extrato bancário conta salário — últimos 3 meses</span></div>
+
+        <div class="categoria">📈 Assalariados (renda variável)</div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">06 últimos contracheques</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Extrato bancário conta salário — últimos 6 meses</span></div>
+
+        <div class="categoria">📝 Sem contracheques / recém-contratado</div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Declaração da firma empregadora com valor bruto dos vencimentos</span></div>
+
+        <div class="categoria">🔧 Autônomos / Informais</div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Declaração de Comprovação de Renda (3 últimos meses) → RETIRAR NA ESCOLA</span></div>
+
+        <div class="categoria">🌾 Trabalhador Rural</div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Declaração de Atividade Remunerada → RETIRAR NA ESCOLA</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Comprovante de contribuição mensal ao sindicato de trabalhadores rurais</span></div>
+
+        <div class="categoria">👴 Aposentados / Pensionistas</div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Último contracheque ou extrato do benefício <a href="https://meu.inss.gov.br/central/index.htm" target="_blank" class="link">→ Baixar</a></span></div>
+
+        <div class="categoria">🏢 Sócios de Empresa</div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">03 últimos comprovantes de pró-labore</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Contrato Social / Comprovação da empresa</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Carnê do INSS com comprovante de pagamento do último mês</span></div>
+        <div class="item"><input type="checkbox" onchange="marcar(this)"><span class="txt">Declaração de Imposto de Renda — TODAS as páginas <a href="https://www.receita.fazenda.gov.br" target="_blank" class="link">→ Site</a></span></div>
+    </div>
+
+    <!-- ABA 3: CRONOGRAMA -->
+    <div class="conteudo" id="c3">
+        <div class="linha"><span class="etapa">Publicação do Edital</span><span class="prazo">08/09/2026</span></div>
+        <div class="linha"><span class="etapa">Entrevista — 2ª Série</span><span class="prazo">14 a 25/09/2026 ⚠️ EM ANDAMENTO</span></div>
+        <div class="linha"><span class="etapa">Entrevista — 12ª Série</span><span class="prazo">25/09 a 08/10/2026</span></div>
+        <div class="linha"><span class="etapa">Entrevista — 9º Ano</span><span class="prazo">08 a 23/10/2026</span></div>
+        <div class="linha"><span class="etapa">Divulgação do Resultado</span><span class="prazo">30/10/2026</span></div>
+        <div class="linha"><span class="etapa">Rematrícula</span><span class="prazo">10 a 12/11/2026</span></div>
+        <div class="linha"><span class="etapa">Encerramento</span><span class="prazo">30/10/2026</span></div>
+    </div>
+
+    <!-- ABA 4: LINKS ÚTEIS -->
+    <div class="conteudo" id="c4">
+        <div class="card-links">
+            <h3>🔗 Sites Oficiais</h3>
+            <a href="https://servicos.mte.gov.br" target="_blank">Emitir CTPS Digital → servicos.mte.gov.br</a>
+            <a href="https://meu.inss.gov.br/central/index.htm" target="_blank">Extrato INSS / Aposentadoria → meu.inss.gov.br</a>
+            <a href="https://www.receita.fazenda.gov.br" target="_blank">Declaração Imposto de Renda → receita.fazenda.gov.br</a>
+        </div>
+        <div class="obs">
+            <h3>📋 Declarações para RETIRAR NA ESCOLA:</h3>
+            <p>• Declaração de Ausência de CTPS<br>
+            • Declaração de Comprovação de Renda<br>
+            • Declaração de Atividade Remunerada<br>
+            • Declaração de União Estável / Separação Conjugal<br>
+            • Declaração de Situação de Moradia</p>
+            <br>
+            <h3>⚠️ Regras importantes:</h3>
+            <ul style="margin-left:15px;line-height:1.6;">
+                <li>CTPS Digital impressa nos últimos <strong>30 dias</strong></li>
+                <li>Comprovante de residência: referente ao <strong>último mês</strong></li>
+                <li>NÃO aceitamos carnês ou faturas de cartão como comprovante de residência</li>
+                <li>Declaração de IR: entregar <strong>TODAS as páginas</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="obs">
+        <h3>✅ Progresso</h3>
+        <div class="resumo">
+            <span class="sim" id="contagem">0 de 0 itens marcados</span>
+        </div>
+    </div>
+
+<script>
+// Alternar abas
+function abrir(n){
+    document.querySelectorAll('.aba').forEach((el,i)=>el.classList.toggle('ativa',i===n));
+    document.querySelectorAll('.conteudo').forEach((el,i)=>el.classList.toggle('ativa',i===n));
+}
+
+// Marcar item como pronto
+function marcar(cb){
+    const item = cb.closest('.item');
+    item.classList.toggle('feito', cb.checked);
+    salvar();
+    atualizarContagem();
+}
+
+// Contador
+function atualizarContagem(){
+    const total = document.querySelectorAll('.item').length;
+    const feitos = document.querySelectorAll('.item input:checked').length;
+    document.getElementById('contagem').textContent = feitos + ' de ' + total + ' itens marcados';
+}
+
+// Salvar no navegador
+function salvar(){
+    const estado = [];
+    document.querySelectorAll('.item input').forEach((cb,i)=>estado.push(cb.checked));
+    localStorage.setItem('checklist-bolsa', JSON.stringify(estado));
+}
+
+// Carregar marcações salvas
+function carregar(){
+    const salvo = localStorage.getItem('checklist-bolsa');
+    if(!salvo) return;
+    JSON.parse(salvo).forEach((marcado,i)=>{
+        const todos = document.querySelectorAll('.item input');
+        if(todos[i] && marcado){
+            todos[i].checked = true;
+            todos[i].closest('.item').classList.add('feito');
+        }
+    });
+    atualizarContagem();
+}
+
+// Iniciar ao carregar página
+window.onload = carregar;
+</script>
+</body>
+</html>
