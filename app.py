@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Checklist Bolsa de Estudo — Marista Champagnat Teresina
-Versão com Abas, Checkboxes Clicáveis e Links Oficiais
+Versão com Abas, Checkboxes e Links Oficiais
 """
 
 from fastapi import FastAPI
