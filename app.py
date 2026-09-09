@@ -10,7 +10,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from starlette.requests import Request
 
-app = FastAPI(title="Checklist Bolsa Marista Teresina")
+app = FastAPI(title="Checklist Bolsa Marista Teresina", root_path="/")
 
 class AnalisadorEditalMarista:
     def __init__(self):
@@ -155,6 +155,6 @@ async def root(request: Request):
     """
     return HTMLResponse(content=html_content)
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+#if __name__ == "__main__":
+    #import uvicorn
+    #uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
